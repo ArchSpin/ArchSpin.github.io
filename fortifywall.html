@@ -172,6 +172,26 @@ https://github.com/Team-Code/KA_Offline -->
             kgState();
         }
 
+        keyPressed = function() {
+			if(keyPressed && keyCode === 32) {//fortify
+				if(wallY >= 800 && money >= 5 && kgFunctions === 1 && isDead === 0 && level === 1) {
+                    wallY -= 10; 
+                    money -= 5;
+                    
+                }
+                if(wallY >= 800 && money >= 10 && kgFunctions === 1 && isDead === 0 && level === 2) {
+                    wallY -= 10; 
+                    money -= 10;
+                    
+                }
+                if(wallY >= 800 && money >= 15 && kgFunctions === 1 && isDead === 0 && level > 2) {
+                    wallY -= 10; 
+                    money -= 15;
+                    
+                }
+			}
+        }
+
         mouseClicked = function() {
             if (mouseX >= 1350 && mouseX <= 1450 && mouseY >= 30 && mouseY <= 80) {
                 speed = 4;
@@ -228,7 +248,7 @@ https://github.com/Team-Code/KA_Offline -->
                 } else if(level === 2) {
                     speed += 0.2;
                 } else if(level > 2) {
-                    speed += 0.25;
+                    speed += 0.23;
                 }
                 kills++;
             }
