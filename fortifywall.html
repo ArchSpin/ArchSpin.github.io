@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Fortify The Wall!</title> 
+    <style>
+		body {
+			background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+		}
+		</style>
+</head>
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(1500, 700); 
+        frameRate(30);
+        
+        // ProgramCodeGoesHere
+        var speed = 4;
+        var wallX = 1000;
+        var wallY = 1000;
+        var knightX = -50;
+        var knightY = 575;
+        var money = 0;
+        var kgFunctions = 1;
+        var kills = 0;
+        wall = function() {
+            fill(100);
+            rect(wallX, wallY, 150, 1000);
+            fill(100);
+            rect(1500, 500, 500, 300);
+            rect(1250, 328, 70, 70);
+            rect(1350, 328, 70, 70);
+            rect(1450, 328, 70, 70);
+        }
+
+        buttons = function() {
+            fill(100);
+            rect(1400, 125, 100, 50, 10);
+            fill(0);
+            textSize(20);
+            text("FORTIFY", 1400, 125);
+            fill(0, 38, 6)
+            text("5$", 1400, 145);
+            fill(100);
+            rect(1400, 55, 100, 50, 10);
+            fill(0);
+            textSize(20);
+            text("RESTART", 1400, 55);
+            fill(0);
+            textSize(30)
+            text("Money: " + money + "\nKills: " + kills, 80, 40);
+
+        }
+
+        enemy = function() {
+            fill(122, 0, 0)
+            rect(knightX, knightY, 50, 50);
+            if(knightX >= wallX - 75) {
+                wallY += 20;
+                knightX = -50;
+            }
+        }
+
+        kgState = function() {
+            if(wallY >= 1100) {
+                kgFunctions = 0;
+                text("You lost the game.", 750, 350);
+            }
+        }
+        draw = function() {
+            background(125, 233, 255);
+            textFont(createFont("monospace"), 30);
+            textAlign(CENTER, CENTER);
+            noStroke();
+            rectMode(CENTER);
+            wall();
+            fill(0, 207, 14)
+            rect(750, 650, 2000, 100);
+            fill(153, 51, 0);
+            rect(750, 670, 2000, 100);
+            fill(0, 18, 84);
+            rect(1150, 575, 50, 50);
+            if(kgFunctions === 1) {
+                knightX += speed;
+            }
+            buttons();
+            enemy();
+            kgState();
+        }
+
+        mouseClicked = function() {
+            if (mouseX >= 1350 && mouseX <= 1450 && mouseY >= 30 && mouseY <= 80) {
+                speed = 4;
+                wallX = 1000;
+                wallY = 1000;
+                knightX = -50;
+                knightY = 575;
+                money = 0;
+                kgFunctions = 1;
+                kills = 0;
+                
+            }
+            if (mouseX >= 1350 && mouseX <= 1450 && mouseY >= 100 && mouseY <= 150) {
+                if(wallY > 800 && money >= 5 && kgFunctions === 1) {
+                    wallY -= 10; 
+                    money -= 5;
+                    
+                }
+                
+            }
+            if (mouseX >= knightX - 25 && mouseX <= knightX + 25 && mouseY >= knightY - 25 && mouseY <= knightY + 25) {
+                knightX = -50;
+                money += 1;
+                speed += 0.2;
+                kills++;
+            }
+        };
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
