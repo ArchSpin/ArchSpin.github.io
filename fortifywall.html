@@ -226,9 +226,9 @@ https://github.com/Team-Code/KA_Offline -->
                 if(level === 1) {
                     speed += 0.15;
                 } else if(level === 2) {
-                    speed += 0.25;
+                    speed += 0.23;
                 } else if(level > 2) {
-                    speed += 0.35;
+                    speed += 0.3;
                 }
                 kills++;
             }
@@ -238,12 +238,12 @@ https://github.com/Team-Code/KA_Offline -->
                     money -= 5;
                     
                 }
-                if(wallY >= 800 && money >= 5 && kgFunctions === 1 && isDead === 0 && level === 2) {
+                if(wallY >= 800 && money >= 10 && kgFunctions === 1 && isDead === 0 && level === 2) {
                     wallY -= 10; 
                     money -= 10;
                     
                 }
-                if(wallY >= 800 && money >= 10 && kgFunctions === 1 && isDead === 0 && level > 2) {
+                if(wallY >= 800 && money >= 15 && kgFunctions === 1 && isDead === 0 && level > 2) {
                     wallY -= 10; 
                     money -= 15;
                     
