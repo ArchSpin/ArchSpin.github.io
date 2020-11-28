@@ -36,6 +36,7 @@ https://github.com/Team-Code/KA_Offline -->
         var knightY = 575;
         var money = 0;
         var kgFunctions = 1;
+        var isDead = 0;
         var kills = 0;
         wall = function() {
             fill(100);
@@ -60,6 +61,16 @@ https://github.com/Team-Code/KA_Offline -->
             fill(0);
             textSize(20);
             text("RESTART", 1400, 55);
+            fill(100);
+            rect(1280, 660, 100, 50, 10);
+            fill(0);
+            textSize(20);
+            text("PAUSE", 1280, 660);
+            fill(100);
+            rect(1400, 660, 100, 50, 10);
+            fill(0);
+            textSize(20);
+            text("RESUME", 1400, 660);
             fill(0);
             textSize(30)
             text("Money: " + money + "\nKills: " + kills, 80, 40);
@@ -78,6 +89,7 @@ https://github.com/Team-Code/KA_Offline -->
         kgState = function() {
             if(wallY >= 1100) {
                 kgFunctions = 0;
+                isDead = 1;
                 text("You lost the game.", 750, 350);
             }
         }
@@ -112,21 +124,34 @@ https://github.com/Team-Code/KA_Offline -->
                 money = 0;
                 kgFunctions = 1;
                 kills = 0;
+                isDead = 0;
                 
             }
+            if (mouseX >= 1350 && mouseX <= 1450 && mouseY >= 635 && mouseY <= 685) {
+                if(wallY > 800 && kgFunctions === 0 && isDead === 0) {
+                    kgFunctions = 1;
+                }
+                
+            }
+            if (mouseX >= 1230 && mouseX <= 1330 && mouseY >= 635 && mouseY <= 685) {
+                if(wallY > 800 && kgFunctions === 1 && isDead === 0) {
+                    kgFunctions = 0;
+                }
+                
+            }
+            if (mouseX >= knightX - 25 && mouseX <= knightX + 25 && mouseY >= knightY - 25 && mouseY <= knightY + 25 && isDead === 0) {
+                knightX = -50;
+                money += 1;
+                speed += 0.2;
+                kills++;
+            }
             if (mouseX >= 1350 && mouseX <= 1450 && mouseY >= 100 && mouseY <= 150) {
-                if(wallY > 800 && money >= 5 && kgFunctions === 1) {
+                if(wallY > 800 && money >= 5 && kgFunctions === 1 && isDead === 0) {
                     wallY -= 10; 
                     money -= 5;
                     
                 }
                 
-            }
-            if (mouseX >= knightX - 25 && mouseX <= knightX + 25 && mouseY >= knightY - 25 && mouseY <= knightY + 25) {
-                knightX = -50;
-                money += 1;
-                speed += 0.2;
-                kills++;
             }
         };
     }};
