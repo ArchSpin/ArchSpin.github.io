@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Asteroid Destroyer</title> 
+    <style>
+		body {
+			background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+		}
+		</style>
+</head>
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(1500, 700); 
+        frameRate(30);
+        
+        // ProgramCodeGoesHere
+        var r = 0;
+        var g = 0;
+        var b = 0;
+        var isDead = 0;
+        var rocketX = 750;
+        var rocketY = 550;
+        var astX = random(100, 1400);
+        var astY = -100;
+        var gen = 1;
+        var speed = 35;
+        var mode = 1;
+        var astSpeed = 15;
+        var devMode = 0;
+        var mobile = 0;
+        var score = 0;
+        var high = 0;
+        var mSpeedInc = 5;
+        var planets = 0;
+        noStroke();
+        var starX = random(0, 1500);
+        var starY = random(0, 700);
+        var stars = function() {
+           background(0);
+           for(i = 0; i <= 5; i++) {
+              fill(255);
+              ellipse(starX, starY, 10, 10);
+              starX = random(0, 1500);
+              starY = random(0, 1500);
+           }
+           if(planets === 1) {
+           for(i = 0; i <= 1; i++) {
+              fill(random(0, 255), random(0, 255), random(0, 255));
+              ellipse(starX, starY, 100, 100);
+              starX = random(0, 1500);
+              starY = random(0, 1500);
+           }
+           }
+        }
+        
+        var menu = function() {
+            if(mode === 1) {
+               isDead = 0;
+               fill(200, 200, 200);
+               textFont(createFont("monospace"), 30);
+               textSize(50);
+               textAlign(CENTER, CENTER);
+               fill(0, 255, 0);
+               text("ASTEROID DESTROYER", 750, 200);
+               rectMode(CENTER);
+               fill(200, 200, 200);
+               rect(750, 400, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("PLAY", 750, 400);
+               fill(200, 200, 200);
+               rect(750, 500, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("SETTINGS", 750, 500);
+               fill(255);
+               textAlign(TOP, LEFT);
+               textFont(createFont("monospace"), 30);
+               textSize(40);
+               text("High: " + high, 10, 40);
+               textAlign(CENTER, CENTER);
+            } else if(mode === 2) {
+               isDead = 1;
+               speed = 35;
+               fill(255, 0, 0);
+               textAlign(CENTER, CENTER);
+               fill(255);
+               textAlign(TOP, LEFT);
+               textFont(createFont("monospace"), 30);
+               textSize(40);
+               text("Score: " + score +"\nHigh: " + high, 10, 40);
+               textAlign(CENTER, CENTER);
+            textFont(createFont("monospace"), 30);
+            textSize(30);
+            fill(255, 0, 0);
+            text("You lost the game.", 750, 250);
+               fill(200);
+               rect(750, 400, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("RESET", 750, 400);
+               fill(200, 200, 200);
+               rect(750, 500, 150, 50, 5); 
+               fill(0);
+               textSize(25);
+               text("SETTINGS", 750, 500);
+            } else if(mode === 3){
+               isDead = 0;
+               var mSpeedIncShow = mSpeedInc + speed
+               fill(200, 200, 200);
+               textFont(createFont("monospace"), 30);
+               textSize(50);
+               textAlign(CENTER, CENTER);
+               text("SETTINGS", 750, 200);
+               rect(750, 300, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("MENU", 750, 300);
+               fill(200, 200, 200);
+               rect(750, 400, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("MOBILE", 750, 400);
+               fill(200, 200, 200);
+               rect(750, 500, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("PC", 750, 500);
+               fill(200, 200, 200);
+               rect(500, 400, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("SHOW", 500, 400);
+               fill(200, 200, 200);
+               rect(500, 500, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("HIDE", 500, 500);
+               fill(255);
+               text("SPEED: " + mSpeedIncShow, 1000, 300);
+               if(planets === 1) {
+               text("PLANETS: ON", 500, 300);
+               } else if(planets === 0) {
+               text("PLANETS: OFF", 500, 300);
+               }
+               fill(255);
+               textSize(25);
+               if(mobile === 1) {
+                  text("CONTROLS: MOBILE\nPress the left side to move left and the right side to move right. You can't hold.", 750, 600);
+               } else if(mobile === 0) {
+                  text("CONTROLS: PC\nPress A to move left and D to move right.", 750, 600);
+               }
+               fill(200, 200, 200);
+               rect(1000, 400, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("INCREASE", 1000, 400);
+               fill(200, 200, 200);
+               rect(1000, 500, 150, 50, 5);
+               fill(0);
+               textSize(25);
+               text("DECREASE", 1000, 500);
+               fill(255);
+               textAlign(TOP, LEFT);
+               textFont(createFont("monospace"), 30);
+               textSize(40);
+               text("High: " + high, 10, 40);
+               textAlign(CENTER, CENTER);
+            } else if(mode === 0) {
+               var cx = constrain(rocketX, 0, 1500);
+               isDead = 0;
+               if(score > high) {
+                  high = score;
+               }
+        fill(255, 0, 0);
+            ellipse(cx, rocketY, 50, 50);
+            fill(150);
+            ellipse(astX, astY, 100, 100);
+            astY+=10;
+         if(rocketX >= astX - 50 && rocketX <= astX + 50 && rocketY >= astY - 50 && rocketY <= astY + 50 && isDead === 0) {
+            astX = random(0, 1500);
+            astY = -100;
+            speed += 0.2
+            astSpeed += 0.1;
+            score += 1;
+         }
+         if(astY >= 700) {
+            mode = 2;
+         }
+         fill(255);
+         textAlign(TOP, LEFT);
+               textFont(createFont("monospace"), 30);
+               textSize(40);
+               text("Score: " + score +"\nHigh: " + high, 10, 40);
+               textAlign(CENTER, CENTER);
+         
+            }
+        }
+        draw = function() {
+            stars();
+            menu();
+            if(devMode === 1) {
+               fill(255);
+               textSize(20);
+               text("astspeed " + astSpeed + " pspeed " + speed + " mobile " + mobile + " mode " + mode + " mspeedinc " + mSpeedInc, 750, 650);
+               
+            }
+            
+        
+		};
+
+      mouseClicked = function() {
+         if(mode === 1) {
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
+            mode = 0
+            isDead = 0;
+            astX = random(100, 1400);
+            astY = -100;
+            speed = 35;
+            astSpeed = 15;
+            rocketX = 750;
+            score = 0;
+
+         }
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 500 - 25 && mouseY <= 500 + 25) {
+            mode = 3
+         }
+         } else if(mode === 3) {
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
+            mobile = 1
+         }
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 500 - 25 && mouseY <= 500 + 25) {
+            mobile = 0
+         }
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 300 - 25 && mouseY <= 300 + 25) {
+            mode = 1;
+         }
+         if (mouseX >= 1000 - 75 && mouseX <= 1000 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
+            mSpeedInc += 5;
+         }
+         if(mSpeedInc > 0) {
+         if (mouseX >= 1000 - 75 && mouseX <= 1000 + 75 && mouseY >= 500 - 25 && mouseY <= 500 + 25) {
+            mSpeedInc -= 5;
+         }
+         if (mouseX >= 500 - 75 && mouseX <= 500 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
+            planets = 1;
+         }
+         if (mouseX >= 500 - 75 && mouseX <= 500 + 75 && mouseY >= 500 - 25 && mouseY <= 500 + 25) {
+            planets = 0;
+         }
+         }
+         }
+         if(mode === 0) {
+            if(mobile === 1) {
+               if(mouseX >= 0 && mouseX <= 750 && mouseY >= 0 && mouseY <= 750) {
+                  rocketX -= speed + mSpeedInc
+               }
+               if(mouseX >= 750 && mouseX <= 1500 && mouseY >= 0 && mouseY <= 750) {
+                  rocketX += speed + mSpeedInc
+               }
+            }
+         }
+         if(mode === 2) {
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
+            mode = 0
+            isDead = 0;
+            astX = random(100, 1400);
+            astY = -100;
+            speed = 35;
+            astSpeed = 15;
+            rocketX = 750;
+            score = 0;
+         }
+         if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 500 - 25 && mouseY <= 500 + 25) {
+            mode = 3
+         }
+         }
+      }
+      
+      keyPressed = function() {
+         if(mobile === 0) {
+         if(isDead === 0) {
+				if(keyPressed && keyCode === 65) { //left
+					rocketX -= speed + mSpeedInc;
+				}
+				if(keyPressed && keyCode === 68) {//right
+					rocketX += speed + mSpeedInc;
+				}
+         }
+		}
+      }
+      
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
