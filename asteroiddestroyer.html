@@ -35,7 +35,7 @@ https://github.com/Team-Code/KA_Offline -->
         var isDead = 0;
         var rocketX = 750;
         var rocketY = 550;
-        var astX = random(300, 1200);
+        var astX = random(150, 1350);
         var astY = -100;
         var gen = 1;
         var speed = 35;
@@ -229,7 +229,7 @@ https://github.com/Team-Code/KA_Offline -->
             ellipse(astX, astY, 100, 100);
             astY+=10 + aSpeedInc;
          if(rocketX >= astX - 50 && rocketX <= astX + 50 && rocketY >= astY - 50 && rocketY <= astY + 50 && isDead === 0) {
-            astX = random(0, 1500);
+            astX = random(150, 1350);
             astY = -100;
             speed += 0.5
             astSpeed += 0.4;
@@ -265,7 +265,7 @@ https://github.com/Team-Code/KA_Offline -->
          if (mouseX >= 750 - 75 && mouseX <= 750 + 75 && mouseY >= 400 - 25 && mouseY <= 400 + 25) {
             mode = 0
             isDead = 0;
-            astX = random(300, 1200);
+            astX =   random(150, 1350);
             astY = -100;
             speed = 35;
             astSpeed = 15;
