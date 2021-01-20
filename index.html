@@ -1,151 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Arch2 - Home Page</title>
-
-	<style>
-		body{
-			background-image:url(https://cdn.discordapp.com/attachments/589051712296452096/785292372262649856/galaxy-wallpaper-5.png);
+    <head>
+        <meta charset="utf-8">
+        <title>Future Dash Browser!</title>
+        <style>
+        body{
+			background-image:url(https://cdn.discordapp.com/attachments/784465279295160370/800170673434656808/spacebg9.jpg);
 			background-size: cover;
 			background-attachment: fixed;
             
 		}
-        
-        .tooltip {
+
+        div.a {
+            text-align: center;
             position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
+            top: 200px;
+        }
+        div.f {
+            text-align: center;
+            position: relative;
+            top: -350px;
         }
 
-        .images {
-            text-align: center;
+        div.b {
+            text-align: bottom;
+            position: absolute;
+            z-index: 1;
+            top: 608px;
+            left: -5px;
         }
 
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-
+        div.c {
+            text-align: bottom;
             position: absolute;
             z-index: 1;
             top: -5px;
-            left: 105%;
+            left: -5px;
         }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
+        div.d {
+            text-align: bottom;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            right: 0px;
         }
-        
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.6s;
-            padding: 40px 100px;
-            font-family: sans-serif;
-            background-color: rgb(0, 0, 0);
-            margin-left: -90px;
-            z-index:3;
+        div.e {
+            text-align: bottom;
+            position: absolute;
+            z-index: 2;
+            top: 606px;
+            right: 0px;
         }
-
-        header .logo {
-            position: relative;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            font-size: 2em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.6s;
-            margin-left: 20px;
-            z-index:4;
+        div.mindal {
+            text-align: bottom;
+            position: absolute;
+            z-index: 1;
+            top: 606px;
+            right: 0px;
         }
-
-        header ul {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: -20px;
-            z-index:4;
-        }
-
-        header ul li {
-            position: relative;
-            list-style: none;
-            z-index:4;
-
-        }
-        header ul li a {
-            position: relative;
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-            letter-spacing: 2px;
-            font-weight: 500px;
-            transition: 0.6s;
-            z-index:4;
-        }
-
-		.content{
-			background: white;
-			width: 50%;
-			padding: 40px;
-			margin: 100px auto;
-			font-family: sans-serif;
-			border-radius: 10px;
-            margin-top: 190px;
-		}
-
-		p{
-			font-size: 25px;
-			color: black;
-		}
-
-	</style>
-</head>
-<body>
-    <header>
-        <a href="https://albert1235456.github.io/" class="logo"><img src="https://media.discordapp.net/attachments/589051712296452096/785665758566154271/Untitled.png" width="50px"></a>
-        <ul>
-            <li><a href="https://albert1235456.github.io/">HOME</a></li>
-            <li><a href="https://albert1235456.github.io/socials">SOCIALS</a></li>
-            <li><a href="https://albert1235456.github.io/m">FAQ</a></li>
-        </ul>
-    </header>
-    <section class="banner"></section>
-   <div class="content">
-   	  
-   	  <p>
-        <strong>This website is still in the works. Please check out my socials!</strong><br>
-        Hello! I am <strong>Arch2</strong>. I'm a 13-year old male and an 8th grade student. I am a gamedev (in training) and a programmer. I know Python, HTML (which isn't really a programming language) and ProcessingJS.
-        <br>In my free time I play video games, do texturepacks, and, as I said, make my own games. I've also been trying Unity sometimes. Here's some images of some games I made with ProcessingJS. Click the image to try the actual game, and hover over images for an explanation about the game.
-        <br>
-        <div class="images">
-
-        <p>Fortify The Wall!</p>
-        <div class="tooltip"><a href="https://albert1235456.github.io/sketchpad"><img src="https://cdn.discordapp.com/attachments/589051712296452096/785673837744226304/unknown.png" width=700px></a>
-            <span class="tooltiptext">A game where you need to fortify the wall to protect your castle from evil knights.</span>
+        </style>
+    </head>
+    <body>
+        <div class="b">
+            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800125216466272286/GJ_sideArt_bl.png">
         </div>
-        <p>woods.io (even though it's singleplayer)</p>
-        <div class="tooltip"><a href="https://albert1235456.github.io/sketchpad"><img src="https://cdn.discordapp.com/attachments/589051712296452096/785671703304994826/unknown.png" width=700px></a>
-            <span class="tooltiptext">A game where you have to cut trees until the squirrel does it.</span>
+        <div class="c">
+            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800125223323566130/GJ_sideArt_tl.png">
         </div>
-        <p>Sketchpad (PC only)</p>
-        <div class="tooltip"><a href="https://albert1235456.github.io/sketchpad"><img src="https://cdn.discordapp.com/attachments/589051712296452096/785670714513948682/unknown.png" width=700px></a>
-            <span class="tooltiptext">This is just a drawing board, but it works only on PC.</span>
+        <div class="d">
+            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800128302517190676/GJ_sideArt_tr.png">
         </div>
+        <div class="e">
+            <a href="https://mindalgdpsp.7m.pl/web/"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800128816910434355/GJ_sideArt_br.png"></a>
         </div>
-   	  </p>
-   </div>
-  
-</body>
+        <div class="mindal">
+            <img src="https://cdn.discordapp.com/attachments/699030265716146227/800839805557669888/cube_11.png">
+        </div>
+        <div class="a">
+            <a href="https://albert1235456.github.io/changelog"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800129990985252944/Changelog.png" width="200"></a>
+            <a href="https://albert1235456.github.io/news"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800133064784347146/News.png" width="200"></a>
+            <a href="https://albert1235456.github.io/download"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800134531829989386/Download.png" width="200"></a>
+            <img src="https://cdn.discordapp.com/attachments/589033685131722753/801276621868105758/Untitled_-_Copy_4_-_Copy.png" width="200">
+            <img src="https://cdn.discordapp.com/attachments/589033685131722753/801276746959159356/Modlist_-_Copy.png" width="200">
+            <br>
+            <a href="https://albert1235456.github.io/aboutme"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800169071793930351/About_Me.png" width="200">
+            <a href="https://albert1235456.github.io/programs"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800172173888454656/Untitled_-_Copy_2.png" width="200">
+            <a href="https://albert1235456.github.io/socials"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800498411022712862/Untitled_-_Copy_3.png" width="200">
+            <a href="https://albert1235456.github.io/randomquest"><img src="https://cdn.discordapp.com/attachments/589033685131722753/801261015543185409/GJ_challengeBtn_001.png" width="200"></a>
+        </div>
+        <div class="f">
+            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800129180376629288/future20dash20browser.png" width="1200">
+        </div>
+
+    </body>
 </html>
