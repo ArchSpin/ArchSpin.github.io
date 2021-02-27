@@ -1,96 +1,165 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Future Dash Browser!</title>
-        <style>
-        body{
-			background-image:url(https://cdn.discordapp.com/attachments/784465279295160370/800170673434656808/spacebg9.jpg);
+<head>
+	<title>Arch2 - Home Page</title>
+
+	<style>
+		body{
+			background-image:url(https://cdn.discordapp.com/attachments/589033685131722753/814681624196153364/ezgif-3-89732f9d1a56.gif);
 			background-size: cover;
 			background-attachment: fixed;
-            
+		}
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .images {
+            text-align: center;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 105%;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.6s;
+            padding: 40px 100px;
+            font-family: sans-serif;
+            background-color: rgb(0, 0, 0);
+            margin-left: -90px;
+            z-index:3;
+        }
+
+        header ul {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -20px;
+            z-index:4;
+        }
+
+        header ul li {
+            position: relative;
+            list-style: none;
+            z-index:4;
+
+        }
+        header ul li a {
+            position: relative;
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 500px;
+            transition: 0.6s;
+            z-index:4;
+        }
+
+        .logo {
+            position: relative;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            font-weight: 500px;
+            font-size: 200px;
+            position: relative;
+            top: 100px;
+        }
+        h3 {
+            color: #fff;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            font-weight: 500px;
+            font-size: 50px;
+            position: relative;
+            top: -135px;
+        }
+        h2 {
+            color: rgb(0, 110, 255);
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            font-size: 30px;
+        }
+		#content{
+			background: white;
+			width: 50%;
+			padding: 40px;
+			margin: 100px auto;
+			font-family: sans-serif;
+			border-radius: 10px;
+            margin-top: 190px;
 		}
 
-        div.a {
-            text-align: center;
-            position: relative;
-            top: 200px;
-        }
-        div.f {
-            text-align: center;
-            position: relative;
-            top: -350px;
-        }
+		p{
+			color: black;
+		}
 
-        div.b {
-            text-align: bottom;
-            position: absolute;
-            z-index: 1;
-            top: 608px;
-            left: -5px;
-        }
-
-        div.c {
-            text-align: bottom;
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            left: -5px;
-        }
-        div.d {
-            text-align: bottom;
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            right: 0px;
-        }
-        div.e {
-            text-align: bottom;
-            position: absolute;
-            z-index: 2;
-            top: 606px;
-            right: 0px;
-        }
-        div.mindal {
-            text-align: bottom;
-            position: absolute;
-            z-index: 1;
-            top: 606px;
-            right: 0px;
-        }
-        </style>
-    </head>
-    <body>
-        <div class="b">
-            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800125216466272286/GJ_sideArt_bl.png">
-        </div>
-        <div class="c">
-            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800125223323566130/GJ_sideArt_tl.png">
-        </div>
-        <div class="d">
-            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800128302517190676/GJ_sideArt_tr.png">
-        </div>
-        <div class="e">
-            <a href="https://mindalgdpsp.7m.pl/web/"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800128816910434355/GJ_sideArt_br.png"></a>
-        </div>
-        <div class="mindal">
-            <img src="https://cdn.discordapp.com/attachments/699030265716146227/800839805557669888/cube_11.png">
-        </div>
-        <div class="a">
-            <a href="https://albert1235456.github.io/changelog"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800129990985252944/Changelog.png" width="200"></a>
-            <a href="https://albert1235456.github.io/news"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800133064784347146/News.png" width="200"></a>
-            <a href="https://albert1235456.github.io/download"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800134531829989386/Download.png" width="200"></a>
-            <img src="https://cdn.discordapp.com/attachments/589033685131722753/801276621868105758/Untitled_-_Copy_4_-_Copy.png" width="200">
-            <a href="https://arch2future.7m.pl/website/Modlist.php"><img src="https://cdn.discordapp.com/attachments/589033685131722753/805876260911710269/Modlist.png" width="200">
-            <br>
-            <a href="https://albert1235456.github.io/aboutme"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800169071793930351/About_Me.png" width="200">
-            <a href="https://albert1235456.github.io/programs"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800172173888454656/Untitled_-_Copy_2.png" width="200">
-            <a href="https://albert1235456.github.io/socials"><img src="https://cdn.discordapp.com/attachments/784465279295160370/800498411022712862/Untitled_-_Copy_3.png" width="200">
-            <a href="https://albert1235456.github.io/randomquest"><img src="https://cdn.discordapp.com/attachments/589033685131722753/801261015543185409/GJ_challengeBtn_001.png" width="200"></a>
-        </div>
-        <div class="f">
-            <img src="https://cdn.discordapp.com/attachments/784465279295160370/800129180376629288/future20dash20browser.png" width="1200">
-        </div>
-
-    </body>
+	</style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="https://albert1235456.github.io/">ARCH2</a></li>
+            <li><a href="https://albert1235456.github.io/socials">SOCIALS</a></li>
+            <li><a href="https://albert1235456.github.io/gdpsbrowser">GDPS WEB</a></li>
+        </ul>
+    </header>
+    <div class="logo">
+        <h1>Arch2</h1>
+        <br>
+        <h3>Programmer, Gamer, Designer<br><a href="#content">Information</a></h3>
+    </div>
+    <section class="banner"></section>
+   <div id="content">
+   	  <h2>About me</h2>
+   	  <p>
+        Hello! I am Arch2. I'm a 13-year old male and an 8th grade student. I am a gamedev (in training) and a programmer. I know Python, HTML (which isn't really a programming language) and ProcessingJS. In my free time I play video games, do texturepacks, and, as I said, make my own games. I've been learning a lot of SimplyJS recently.
+   	  </p>
+    <h2>Projects</h2>
+     <a href="https://albert1235456.github.io/gdpsbrowser">GDPS Browser</a><br>
+     <a href="https://albert1235456.github.io/randomquest">Random Quest Generator</a><br>
+     <a href="https://arch2future.7m.pl/website/Modlist.php">SpinGDPS Modlist</a><br>
+     <a href="https://discord.gg/ph4JMqY">SpinGDPS Discord</a>
+    <h2>Programs</h2>
+    <a href="https://albert1235456.github.io/programs">Here you can find my programs.</a>
+    <h2>Social Media</h2>
+    <a href="https://albert1235456.github.io/socials">Click here to see my social media.</a>
+    <h2>Credits</h2>
+    <p>Thanks to <a href="https://mindalgdpsp.7m.pl/web/">Mindal</a> for helping out with the modlist.</p>
+    <p>The background video was made by <a href="https://pixabay.com/users/tbit-715211/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1175">Thomas Breher</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1175">Pixabay</a>.</p>
+   </div>
+  
+</body>
 </html>
